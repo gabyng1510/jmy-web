@@ -1,29 +1,37 @@
 @import "tailwindcss";
 
 @theme {
+  /* surfaces */
   --color-bg: #fff5ec;
   --color-surface: #ffffff;
-  --color-ink: #0a0e12;
+  --color-border: #e5e7eb;
+  --color-border-soft: #f0e6d6;
+
+  /* text */
+  --color-ink: #111827;
   --color-ink-soft: #4b5563;
   --color-ink-mute: #9ca3af;
-  --color-border: #e9dccb;
 
+  /* brand — matches ios JmyColor */
   --color-teal: #14b8a6;
-  --color-teal-deep: #0f766e;
   --color-teal-light: #5eead4;
+  --color-teal-deep: #0f766e;
 
-  --color-grape: #7b61ff;
-  --color-grape-deep: #5b3df0;
-  --color-grape-soft: #ede9fe;
+  /* status — matches ios JmyColor */
+  --color-success: #10b981;
+  --color-destructive: #ef4444;
+  --color-warning: #f59e0b;
 
-  --color-coral: #ff5e5b;
+  /* fonts (next/font/local injects these vars in layout.tsx) */
+  --font-display: var(--font-chubbo), ui-sans-serif, system-ui, sans-serif;
+  --font-body: var(--font-supreme), ui-sans-serif, system-ui, sans-serif;
 
-  --font-display: var(--font-outfit), ui-sans-serif, system-ui, sans-serif;
-  --font-body: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
-
+  /* radii — matches ios JmyRadius */
+  --radius-xs: 4px;
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 24px;
   --radius-pill: 9999px;
-  --radius-lg: 18px;
-  --radius-xl: 28px;
 }
 
 html,
@@ -36,6 +44,6 @@ body {
 }
 
 ::selection {
-  background: var(--color-grape);
+  background: var(--color-teal);
   color: white;
 }

@@ -38,14 +38,17 @@ When jmy incorporates and counsel rewrites these:
 
 ## Branding
 
-- **Display font**: `Outfit` (next/font/google) — bold geometric, lowercase-friendly
-- **Body font**: `Inter` (next/font/google)
-- **Colors** (defined in `app/globals.css` via Tailwind 4 `@theme`):
-  - `bg` cream `#fff5ec`
-  - `teal` `#14b8a6`, `teal-deep` `#0f766e` — primary, shared with iOS
-  - `grape` `#7b61ff` — web-only accent
-  - `coral` `#ff5e5b` — safety accent
-- **Voice**: lowercase, verb-forward, Gen Z. See `../CLAUDE.md` at the parent repo for the full rules.
+- **Display font**: `Chubbo-Bold` (next/font/local) — copied from iOS app `DesignSystem/Fonts/`. Use sparingly, for headlines + the wordmark.
+- **Body font**: `Supreme` (Light / Regular / Medium / Bold, next/font/local) — copied from iOS app `DesignSystem/Fonts/`. Use for everything else.
+- **Colors** (defined in `app/globals.css` via Tailwind 4 `@theme`, mirroring `ios/jmy/DesignSystem/Tokens/JmyColor.swift`):
+  - `bg` cream `#fff5ec`, `surface` white
+  - `teal` `#14b8a6`, `teal-deep` `#0f766e`, `teal-light` `#5eead4` — primary brand color
+  - `ink` `#111827`, `ink-soft` `#4b5563`, `ink-mute` `#9ca3af`
+  - `success`, `destructive`, `warning` — status colors, also matching iOS
+- **Icons**: `@phosphor-icons/react` (`weight="duotone"` on web — matches the iOS app's icon language while adding a bit more personality at desktop sizes).
+- **Voice**: lowercase, verb-forward. See `../CLAUDE.md` at the parent repo for the full rules.
+
+When the iOS design system gains a new token, mirror it here (and vice versa). The web should never drift from the app.
 
 ## Assets
 

@@ -5,11 +5,9 @@ export default function Wordmark({ className = "" }: { className?: string }) {
     <Link
       href="/"
       aria-label="jmy home"
-      className={`font-display font-extrabold tracking-tight lowercase leading-none ${className}`}
+      className={`font-display font-bold tracking-tight lowercase leading-none text-teal-deep ${className}`}
     >
-      <span className="text-teal-deep">j</span>
-      <span className="text-ink">m</span>
-      <span className="text-grape">y</span>
+      jmy
     </Link>
   );
 }
