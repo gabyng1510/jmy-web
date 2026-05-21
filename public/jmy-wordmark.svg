@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 120" role="img" aria-label="jmy">
+  <style>
+    .w { font-family: 'Outfit', system-ui, -apple-system, sans-serif; font-weight: 800; font-size: 96px; letter-spacing: -0.04em; }
+  </style>
+  <text x="40" y="92" class="w" fill="#0F766E">j</text>
+  <text x="100" y="92" class="w" fill="#0A0E12">m</text>
+  <text x="200" y="92" class="w" fill="#7B61FF">y</text>
+</svg>

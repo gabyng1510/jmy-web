@@ -1,36 +1,81 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# jmy-web
 
-## Getting Started
+Landing page + legal pages for **jmy** — `https://jmy.app`.
 
-First, run the development server:
+Static-exported Next.js (App Router, TypeScript, Tailwind 4). No server, no SSR, no runtime. Deploys to any static host.
+
+This repo is a git submodule of the parent [`gabyng1510/jmy`](https://github.com/gabyng1510/jmy) at `web/`.
+
+## Run
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev      # http://localhost:3000
+npm run build    # → ./out (static bundle)
+npm run lint
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Routes
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+- `/` — landing (hero + value prop + how-it-works)
+- `/privacy/` — privacy policy (plain english)
+- `/terms/` — terms of service (plain english)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Editing the legal pages
 
-## Learn More
+The privacy + terms copy lives at:
 
-To learn more about Next.js, take a look at the following resources:
+- `app/privacy/page.tsx`
+- `app/terms/page.tsx`
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Each page uses the shared `LegalShell` + `Section` components from `components/Legal.tsx`. To bump the "last updated" date, edit the `updated="…"` prop at the top of each page.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+When jmy incorporates and counsel rewrites these:
 
-## Deploy on Vercel
+- delete the italic "we're not a Real Company™ yet" banner (the `banner=…` prop)
+- add governing-law / arbitration / liability-cap sections
+- add the company's registered name + postal address
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Branding
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Display font**: `Outfit` (next/font/google) — bold geometric, lowercase-friendly
+- **Body font**: `Inter` (next/font/google)
+- **Colors** (defined in `app/globals.css` via Tailwind 4 `@theme`):
+  - `bg` cream `#fff5ec`
+  - `teal` `#14b8a6`, `teal-deep` `#0f766e` — primary, shared with iOS
+  - `grape` `#7b61ff` — web-only accent
+  - `coral` `#ff5e5b` — safety accent
+- **Voice**: lowercase, verb-forward, Gen Z. See `../CLAUDE.md` at the parent repo for the full rules.
+
+## Assets
+
+- `public/jmy-wordmark.svg` — text-rendered placeholder. Replace with the real wordmark when ready.
+- `app/favicon.ico` — Next.js default placeholder. Replace with a real one.
+
+## Deploy
+
+**Recommended: Vercel.**
+
+```bash
+npx vercel link
+npx vercel --prod
+```
+
+Custom domain (jmy.app): follow Vercel's DNS instructions in the project dashboard.
+
+**Alternatives** (all consume the `./out` bundle from `npm run build`):
+
+- **Cloudflare Pages** — connect this repo in the Cloudflare dashboard, build command `npm run build`, output dir `out`
+- **GitHub Pages / S3 / Netlify / any static host** — upload `out/`
+
+## Stack
+
+- Next.js 16 (App Router, static export via `output: "export"`)
+- React 19
+- Tailwind 4 (`@tailwindcss/postcss`)
+- TypeScript 5
+- `next/font/google` for self-hosted Outfit + Inter
+
+## Project conventions
+
+Read `AGENTS.md` — Next.js 16 has breaking changes vs older training data. Check `node_modules/next/dist/docs/` before guessing at APIs.
